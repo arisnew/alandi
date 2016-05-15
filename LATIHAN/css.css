@@ -1,0 +1,35 @@
+#x{
+	color: blue;
+	font-size: 50px;
+}
+
+.abc {
+	text-decoration: underline;
+}
+
+div p{
+	color: red;
+}
+
+#y > div > p{
+	background-color: lightblue;
+}
+
+div + p{
+	background-color: green;
+}
+
+div,p {
+	text-align: center;
+}
+
+p.abc:hover {
+	background-color: red;
+}
+
+p.def {
+	position: fixed;
+	margin-top:10px;
+	top: 0;
+	
+}

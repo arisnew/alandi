@@ -1,0 +1,14 @@
+WEB ADVANCE:
+
+- HTML
+- CSS -> Bootstrap
+==> next template bootstrap, js->jquery
+- JavaScript
+- JQuery
+- PHP
+- AJAX
+- MYSQL
+- FRAMEWORK : CI
+- Study :  Sistem Informasi
+
+git : git@github.com:arisnew/alandi.git

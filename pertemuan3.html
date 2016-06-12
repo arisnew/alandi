@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pertemuan ke 3 (JavaScript)</title>
+	<link rel="stylesheet" type="text/css" href="asset/template/bootstrap/css/bootstrap.css">
+	<script type="text/javascript" src="asset/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript">
+
+		//function
+		function penjumlahan(x,y) {
+			document.write(x + y);
+			//return (x + y);
+		}
+
+		//alert(penjumlahan(12,13));
+
+		//array
+		var nilai = [
+				["satu","dua"],
+				["tiga","empat"]
+			];
+
+		//alert(nilai[1][0]);	//tiga...
+
+		var buah = {
+			'b' : "Mangga",
+			'a' : "Jambu",
+			'c': {
+				"d" : "Manggis",
+				"e" : "Kelapa"
+			}
+		}
+
+		//alert(buah.c.d);
+
+		// == , ===, !=, <>, <, >, <=, 
+		/*
+		if(1 === true) {
+			alert("sama");
+		} else{
+			alert("beda");
+		}
+		*/
+
+		//
+
+
+	</script>
+</head>
+<body>
+	<input type="text" id="a" value="1234">
+	<input type="text" name="abc" id="abc" class="ghi" value="">
+	<br>
+	<div class="content"></div>
+	<br>
+	<select id="dropdown">
+		<option value="Laki-laki">Laki-laki</option>
+		<option value="Perempuan">Perempuan</option>
+	</select>
+	<br>
+	<button id="btn-1" class="btn btn-success">Button 1</button>
+	<button id="btn-2" class="btn btn-warning">Button 2</button>
+	<script type="text/javascript">
+		//window.onload = function () {
+			//here
+
+		//}
+		$(document).ready(function(){
+			//
+			$("#btn").click(function () {
+				//$("#def").val($("#a").val());
+				copyValue("def","a");
+			});
+
+			$("#btn-1").click(function () {
+				//$(this).addClass("pull-right");
+				//$(this).toggleClass("btn-success");
+				//$(this).attr("title","Click ME!");
+				$(this).removeAttr("class");
+
+			});
+
+			$("#dropdown").change(function () {
+				alert($(this).val());
+			});
+
+			$("#abc").focusout(function () {
+				alert($(this).val());
+				$("#a").focus();
+			});
+
+			$("#btn-2").click(function () {
+				$(".content").html("<h1>Hello</h1>");
+			});
+
+		});
+
+		function copyValue(id,id2) {
+			if (id) {
+				$("#" + id).val($("#" + id2).val());
+			} else {
+				alert("invalid!");
+			}
+		}
+
+		//fungsi-fungsi yang sering digunakan
+		//addClass, removeClass, attr, removeAttr, val, html
+
+
+
+		//event
+		//click, change, focus, focusout, 
+
+		//selector
+		//#,.
+
+	</script>
+</body>
+</html>

@@ -2,7 +2,7 @@ WEB ADVANCE:
 
 - HTML
 - CSS -> Bootstrap
-==> next template bootstrap, js->jquery
+- js->jquery
 - JavaScript
 - JQuery
 - PHP
@@ -12,3 +12,5 @@ WEB ADVANCE:
 - Study :  Sistem Informasi
 
 git : git@github.com:arisnew/alandi.git
+
+-> next php again

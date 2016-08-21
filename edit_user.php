@@ -59,7 +59,7 @@
 		<br>
 		<br>
 		<input type="submit" name="simpan" value="Simpan">
-		<input type="reset" name="batal" value="Batal">
+		<input type="reset" name="batal" value="Batal" onclick="window.location='list_user.php'">
 	</form>
 </body>
 </html>

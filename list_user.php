@@ -5,6 +5,7 @@
 </head>
 <body>
 	<h3>Data USER</h3>
+	<a href="form_user.php">Add User</a>
 	<table border="1" width="80%" cellspacing="0">
 		<tr>
 			<th>No</th>
@@ -31,7 +32,7 @@
 					<td style="text-align:center;"><?=$data['level_name']?></td>
 					<td style="text-align:center;">
 						<a href="edit_user.php?id=<?=$data['username']?>">Edit</a>
-						<a href="delete_user.php?id=<?=$data['username']?>">Delete</a>
+						<a href="delete_user.php?id=<?=$data['username']?>" onclick="return confirm('Yakin akan hapus data?!')">Delete</a>
 					</td>
 				</tr>
 				<?php

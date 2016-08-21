@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="asset/sweetalert-master/dist/sweetalert.css">
+</head>
+<body>
+<script type="text/javascript">
+function sweet() {
+		document.getElementById('sweet').innerHTML =
+		swal('Data Tersimpan !','Data Berhasil Tersimpan !','success');
+	}
+</script>
 <?php
 	//data from form
 	$username	= $_POST['username'];
@@ -15,9 +28,13 @@
 	$query = "INSERT INTO user (username, name, email, phone, password, level_id, is_active)
 		VALUES ('$username', '$nama', '$email', '$telp', '$pass', '$level', '$status')";
 	//eksekusi query
-	$eksekusi = mysql_query($query);
+	$eksekusi = mysqli_query($koneksi, $query);
 	if ($eksekusi == TRUE) {
-		echo "<script>alert('Simpan Data Berhasil!'); window.location = 'form_user.php';</script>";
+		echo "<div id='sweet()'></div><script>window.location = 'form_user.php';</script>";
 	} else {
 		echo "<script>alert('Simpan Data GAGAL!'); window.location = 'form_user.php';</script>";
 	}
+?>
+<script type="text/javascript" src="asset/sweetalert-master/dist/sweetalert.min.js"></script>
+</body>
+</html>

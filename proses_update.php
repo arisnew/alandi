@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="asset/sweetalert-master/dist/sweetalert.css">
+</head>
+<body>
+<script type="text/javascript">
+function sweet() {
+		document.getElementById('sweet').innerHTML =
+		swal('Data Tersimpan !','Data Berhasil Tersimpan !','success');
+	}
+</script>
 <?php
 	//data from form
 	$username	= $_POST['username'];
@@ -13,9 +26,12 @@
 	//query
 	$query = "UPDATE user SET name = '$nama', email = '$email', phone = '$telp', password = '$pass', level_id = '$level' , is_active = '$status' WHERE username = '$username'";
 	//eksekusi query
-	$eksekusi = mysql_query($query);
+	$eksekusi = mysqli_query($koneksi, $query);
 	if ($eksekusi == TRUE) {
-		echo "<script>alert('Update Data Berhasil!'); window.location = 'form_user.php';</script>";
+		echo "<script>alert('Update Data BERHASIL!');window.location = 'list_user.php';</script>";
 	} else {
-		echo "<script>alert('Update Data GAGAL!'); window.location = 'form_user.php';</script>";
+		echo "<script>alert('Update Data GAGAL!'); window.location = 'list_user.php';</script>";
 	}
+	?>
+	</body>
+	</html>

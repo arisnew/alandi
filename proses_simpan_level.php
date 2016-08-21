@@ -11,7 +11,7 @@
 	$query = "INSERT INTO level (level_name, description, is_active)
 		VALUES ('$level_name', '$description', '$is_active')";
 	//eksekusi query
-	$eksekusi = mysql_query($query);
+	$eksekusi = mysqli_query($koneksi, $query);
 	if ($eksekusi == TRUE) {
 		echo "<script>alert('Simpan Data Berhasil!'); window.location = 'form_level.php';</script>";
 	} else {

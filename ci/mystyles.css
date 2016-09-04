@@ -1,0 +1,17 @@
+h1 {
+	margin: 5px;
+	padding: 0 10px;
+	background-color: #fff;
+	color: blue;
+	width: 100%;
+	font-size: 36px;
+}
+
+.test {
+	margin: 5px;
+	padding: 0 10px;
+	background-color: #fff;
+	color: red;
+	width: 100%;
+	font-size: 36px;
+}

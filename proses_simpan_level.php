@@ -13,7 +13,7 @@
 	//eksekusi query
 	$eksekusi = mysqli_query($koneksi, $query);
 	if ($eksekusi == TRUE) {
-		echo "<script>alert('Simpan Data Berhasil!'); window.location = 'form_level.php';</script>";
+		echo "<script>alert('Simpan Data Berhasil!'); window.location = 'list_level.php';</script>";
 	} else {
-		echo "<script>alert('Simpan Data GAGAL!'); window.location = 'form_level.php';</script>";
+		echo "<script>alert('Simpan Data GAGAL!'); window.location = 'list_level.php';</script>";
 	}

@@ -15,7 +15,8 @@ $eksekusi = mysqli_query($koneksi, $query);
 </head>
 <body>	
 	<div class="container">
-		<legend><h3>Form USER</h3></legend>
+		<h3>Form USER</h3>
+		<hr>
 		<form class="form form-horizontal" role="form" action="proses_simpan.php" method="post">
 		<div class="form-group">
 				<label class="control-label col-sm-2" for="user">Username :</label>
@@ -74,11 +75,13 @@ $eksekusi = mysqli_query($koneksi, $query);
 				<div class="col-sm-2"></div>
 				<div class="col-sm-8">
 					<input type="submit" class="btn btn-primary" name="simpan" value="Simpan">
-					<input type="reset" class="btn btn-danger" name="batal" value="Batal">
+					<input type="reset" class="btn" name="batal" value="reset">
+					<a href="list_user.php" class="btn btn-danger">Batal</a>
 				</div>
 			</div>
 		</form>
+			<script type="text/javascript" src="asset/jquery-2.2.3.min.js"></script>
 		<script type="text/javascript" src="asset/template/bootstrap/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="asset/jquery-2.2.3.min.js"></script>
+		<script type="text/javascript" src="asset/template/menu.js"></script>
 	</body>
 	</html>

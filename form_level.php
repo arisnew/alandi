@@ -6,12 +6,13 @@
 	<link rel="stylesheet" type="text/css" href="asset/template/bootstrap/css/bootstrap.min.css">
 </head>
 <body>	
+	<div id="nav01"></div>
 	<div class="container">
-
-		<legend><h3>Form LEVEL USER</h3></legend>
+		<h3>Form LEVEL USER</h3>
+		<br>
 		<form class="form-horizontal" role="form" action="proses_simpan_level.php" method="post">
 			<div class="form-group">
-			<label class="control-label col-sm-2" for="level">Level Name :</label>
+				<label class="control-label col-sm-2" for="level">Level Name :</label>
 				<div class="col-sm-8">
 					<input type="text" class="form-control" id="level" name="level_name" placeholder="Masukkan Nama Level" required="">
 				</div>
@@ -35,14 +36,15 @@
 				<div class="col-sm-2"></div>
 				<div class="col-sm-8">
 					<input type="submit" class="btn btn-primary" name="simpan" value="Simpan">
-					<input type="reset" class="btn btn-danger" name="batal" value="Batal">
-				</div>
+					<input type="reset" class="btn" name="reset" value="Reset">
+					<a href="list_level.php" class="btn btn-danger">Batal</a>
 				</div>
 			</div>
-		</form>
+		</div>
+	</form>
 
-	</div>
-	<script type="text/javascript" src="asset/template/bootstrap/bootstrap.min.js"></script>
-	<script type="text/javascript" src="asset/jquery-2.2.3.min.js"></script>
+</div>
+<script type="text/javascript" src="asset/template/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="asset/jquery-2.2.3.min.js"></script>
 </body>
 </html>

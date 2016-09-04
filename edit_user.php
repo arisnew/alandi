@@ -21,8 +21,8 @@
 </head>
 <body>	
 <div class="container">
-	<legend><h3>Form USER</h3></legend>
-	<form class="form form-horizontal" role="form" action="proses_update.php" method="post" onsubmit="sweet()">
+	<h3>Form USER</h3>
+	<form class="form form-horizontal" role="form" action="proses_update.php" method="post">
 	<div class="form-group">
 		<label class="control-label col-sm-2" for="user">Username :</label>
 		<div class="col-sm-8">
@@ -30,7 +30,7 @@
 		</div>
 		</div>
 		<div class="form-group">
-		<label class="control-label col-sm-2" for="nama">Nama:</label>
+		<label class="control-label col-sm-2" for="nama">Nama :</label>
 		<div class="col-sm-8">
 		<input type="text" class="form-control" id="nama" name="nama" value="<?=$user['name'];?>" required="">
 		</div>
@@ -85,7 +85,8 @@
 		<div class="col-sm-2"></div>
 		<div class="col-sm-10">
 		<input type="submit" class="btn btn-primary" name="simpan" value="Simpan">
-		<input type="reset" class="btn btn-danger" name="batal" value="Batal">
+		<input type="reset" class="btn" name="reset" value="reset">
+		<a href="list_user.php" class="btn btn-danger">Batal</a>
 		</div>
 		</div>
 	</form>

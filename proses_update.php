@@ -5,12 +5,6 @@
 	<link rel="stylesheet" type="text/css" href="asset/sweetalert-master/dist/sweetalert.css">
 </head>
 <body>
-<script type="text/javascript">
-function sweet() {
-		document.getElementById('sweet').innerHTML =
-		swal('Data Tersimpan !','Data Berhasil Tersimpan !','success');
-	}
-</script>
 <?php
 	//data from form
 	$username	= $_POST['username'];

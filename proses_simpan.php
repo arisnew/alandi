@@ -30,11 +30,10 @@ function sweet() {
 	//eksekusi query
 	$eksekusi = mysqli_query($koneksi, $query);
 	if ($eksekusi == TRUE) {
-		echo "<div id='sweet()'></div><script>window.location = 'form_user.php';</script>";
+		echo "<script>alert('Simpan Data BERHASIL!');window.location = 'list_user.php';</script>";
 	} else {
-		echo "<script>alert('Simpan Data GAGAL!'); window.location = 'form_user.php';</script>";
+		echo "<script>alert('Simpan Data GAGAL!'); window.location = 'list_user.php';</script>";
 	}
 ?>
-<script type="text/javascript" src="asset/sweetalert-master/dist/sweetalert.min.js"></script>
 </body>
 </html>

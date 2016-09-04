@@ -13,4 +13,4 @@ WEB ADVANCE:
 
 git : git@github.com:arisnew/alandi.git
 
--> next php again
+-> next CRUD dg CI & tugas buat beberapa web page & form yg ada

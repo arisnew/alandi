@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 07, 2016 at 12:22 
+-- Generation Time: Sep 18, 2016 at 11:33 
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `level` (
   `level_name` varchar(25) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `is_active` enum('Active','Nonactive') NOT NULL DEFAULT 'Active'
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `level`
@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `level` (
 INSERT INTO `level` (`level_id`, `level_name`, `description`, `is_active`) VALUES
 (1, 'Superuser', 'Top User', 'Active'),
 (2, 'Admin', 'Default Admin App', 'Active'),
-(3, 'User', 'Default User Level', 'Active');
+(3, 'User', 'Default User Level', 'Active'),
+(4, 'Test Level', 'An another things', 'Active');
 
 -- --------------------------------------------------------
 
@@ -58,13 +59,25 @@ CREATE TABLE IF NOT EXISTS `user` (
   `is_active` enum('Active','Nonactive') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `user`
+-- Table structure for table `user1`
 --
 
-INSERT INTO `user` (`username`, `name`, `email`, `phone`, `level_id`, `password`, `is_active`) VALUES
-('agus', 'Agus Budi', 'agus@gmail.com', '08432864', 3, 'Admin', 'Nonactive'),
-('aris', 'Aris Priyanto', 'aris@gmail.com', '1111', 2, 'Admin', 'Active');
+CREATE TABLE IF NOT EXISTS `user1` (
+  `username` varchar(10) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user1`
+--
+
+INSERT INTO `user1` (`username`, `nama`, `email`, `password`) VALUES
+('aguss', 'Agus', 'agus@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -109,6 +122,12 @@ ALTER TABLE `user`
   ADD KEY `level_id` (`level_id`);
 
 --
+-- Indexes for table `user1`
+--
+ALTER TABLE `user1`
+  ADD PRIMARY KEY (`username`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -116,7 +135,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `level`
 --
 ALTER TABLE `level`
-  MODIFY `level_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `level_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --

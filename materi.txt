@@ -9,8 +9,8 @@ WEB ADVANCE:
 - AJAX
 - MYSQL
 - FRAMEWORK : CI
-- Study :  Sistem Informasi
+- Study :  Sistem Payroll
 
 git : git@github.com:arisnew/alandi.git
 
--> next CRUD dg CI & tugas buat beberapa web page & form yg ada
+Tugas : template ready, CRUD Data Master.

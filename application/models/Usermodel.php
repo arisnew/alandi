@@ -11,10 +11,11 @@ class Usermodel extends Model {
     public function getField($inputs = array()) { // set data input for model (mapping db vs form input)
         $fields = array(
             'username' => $inputs['username-input'],
-            'nama' => $inputs['nama-input'],
+            'name' => $inputs['name-input'],
             'email' => $inputs['email-input'],
-            'level' =>  'Admin',
-            'status' => $inputs['status-input']
+            'level' =>  $inputs['level-input'],
+            'description' =>  $inputs['description-input'],
+            'is_active' => $inputs['status-input']
         );
 
         if ($inputs['password-input'] != '') {
@@ -28,14 +29,14 @@ class Usermodel extends Model {
 
         $username = array(
             'field' => 'username-input', 'label' => 'Username',
-            'rules' => 'trim|required|max_length[10]'
-        );
-
-        $nama = array(
-            'field' => 'nama-input', 'label' => 'Nama',
             'rules' => 'trim|required|max_length[50]'
         );
 
-        return array($username, $nama);
+        $name = array(
+            'field' => 'name-input', 'label' => 'Name',
+            'rules' => 'trim|required|max_length[200]'
+        );
+
+        return array($username, $name);
     }
 }

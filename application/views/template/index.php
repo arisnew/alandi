@@ -122,18 +122,15 @@
 			</section>
 			<!-- /.sidebar -->
 		</aside>
-
 		<!-- =============================================== -->
-
-		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
-			<!-- Content Header (Page header) -->
-			<div id="dinamic-content">
-				<?php echo (isset($_CONTENT))? $_CONTENT : '';?>
-			</div>
+			<section class="content">
+				<div id="dinamic-content">
+					<?php echo (isset($_CONTENT))? $_CONTENT : '';?>
+				</div>
+			</section>
+			
 		</div>
-		<!-- /.content-wrapper -->
-
 		<footer class="main-footer">
 			<div class="pull-right hidden-xs">
 				<b>Version</b> 1

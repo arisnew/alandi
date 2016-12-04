@@ -6,7 +6,7 @@ class Retriever extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->activeSession = $this->session->userdata('_USER_ID');
+		$this->activeSession = 'DEMO';// $this->session->userdata('_USER_ID');
 	}
 
 	public function index() {
@@ -70,70 +70,19 @@ class Retriever extends CI_Controller {
 
 		foreach ($records as $record) {
 			if ($picker == 'yes') {
-				$linkBtn = ' <a href="#' . $record->username . '" class="btn btn-xs btn-primary pickBtn"><i class="fa fa-thumb-tack" ></i> Pilih</a>';
+				$linkBtn = ' <a href="#' . $record->user_id . '" class="btn btn-xs btn-primary pickBtn"><i class="fa fa-thumb-tack" ></i> Pilih</a>';
 			} elseif ($picker == 'no') {
-				//$linkBtn = '<a href="#' . $record->username . '" class="btn btn-xs btn-warning privilegeBtn"><i class="fa fa-shield"></i> Privilege</a>';
-				$linkBtn = ' <a href="#' . $record->username . '" class="btn btn-xs btn-primary editBtn"><i class="fa fa-edit"></i> Edit</a>';
-				$linkBtn .= ' <a href="#' . $record->username . '" class="btn btn-xs btn-danger removeBtn"><i class="fa fa-trash-o"></i> Delete</a>';
+				//$linkBtn = '<a href="#' . $record->user_id . '" class="btn btn-xs btn-warning privilegeBtn"><i class="fa fa-shield"></i> Privilege</a>';
+				$linkBtn = ' <a href="#' . $record->user_id . '" class="btn btn-xs btn-primary editBtn"><i class="fa fa-edit"></i> Edit</a>';
+				$linkBtn .= ' <a href="#' . $record->user_id . '" class="btn btn-xs btn-danger removeBtn"><i class="fa fa-trash-o"></i> Delete</a>';
 			}
 			
 			$data[] = array(
 				'username' => $record->username,
-				'nama' => $record->nama,
+				'name' => $record->name,
 				'email' => $record->email,
-				'status' => $record->status,
-				'aksi' => $linkBtn
-				);
-		}
-		return $data;
-	}
-
-	private function _guru($records, $picker = 'no') {
-		$data = array();
-
-		foreach ($records as $record) {
-			if ($picker == 'yes') {
-				$linkBtn = ' <a href="#' . $record->nip . '" class="btn btn-xs btn-primary pickBtn"><i class="fa fa-thumb-tack" ></i> Pilih</a>';
-			} elseif ($picker == 'no') {
-				$linkBtn = ' <a href="#' . $record->nip . '" class="btn btn-xs btn-primary editBtn"><i class="fa fa-edit"></i> Edit</a>';
-				$linkBtn .= ' <a href="#' . $record->nip . '" class="btn btn-xs btn-danger removeBtn"><i class="fa fa-trash-o"></i> Delete</a>';
-			}
-			
-			$data[] = array(
-				'nip'			=> $record->nip,
-				'nama' 			=> $record->nama,
-				'alamat' 		=> $record->alamat,
-				'tempat_lahir' 	=> $record->tempat_lahir,
-				'jenis_kelamin' => $record->jenis_kelamin,
-				'agama' 		=> $record->agama,
-				'no_telp'		=> $record->no_telp,
-				'email'			=> $record->email,
-				'status_pegawai'=> $record->status_pegawai,
-				'username' 		=> $record->username,
-				'status' 		=> $record->status,
-				'aksi' 			=> $linkBtn
-				);
-		}
-		return $data;
-	}
-
-	private function _siswa($records, $picker = 'no') {
-		$data = array();
-
-		foreach ($records as $record) {
-			if ($picker == 'yes') {
-				$linkBtn = ' <a href="#' . $record->nis . '" class="btn btn-xs btn-primary pickBtn"><i class="fa fa-thumb-tack" ></i> Pilih</a>';
-			} elseif ($picker == 'no') {
-				//$linkBtn = '<a href="#' . $record->nis . '" class="btn btn-xs btn-warning privilegeBtn"><i class="fa fa-shield"></i> Privilege</a>';
-				$linkBtn = ' <a href="#' . $record->nis . '" class="btn btn-xs btn-primary editBtn"><i class="fa fa-edit"></i> Edit</a>';
-				$linkBtn .= ' <a href="#' . $record->nis . '" class="btn btn-xs btn-danger removeBtn"><i class="fa fa-trash-o"></i> Delete</a>';
-			}
-			
-			$data[] = array(
-				'nis' => $record->nis,
-				'nama' => $record->nama,
-				'alamat' => $record->alamat,
-				'kelas' => $record->kelas,
+				'level' => $record->level,
+				'status' => statusData($record->is_active),
 				'aksi' => $linkBtn
 				);
 		}

@@ -134,4 +134,24 @@ class Model extends CI_Model {
         return $this->table;
     }
 
+    //for RBAC
+    public function getUAC($form_name = '')
+    {
+        $ret = 0;
+        $this->db->where('form_name', $form_name);
+        $modul = $this->db->get('modul');
+        //$modul->free_result();
+        if ($modul->num_rows() > 0) {
+            $module = $modul->row();
+            $this->db->where(array('modul_id' => $module->modul_id, 'user_id' => $this->session->userdata('_USER_ID')));
+            $uac = $this->db->get('privilege');
+            if ($uac->num_rows() > 0) {
+                $ret = $uac->row()->role;
+            }
+        }
+
+        return $ret;
+    }
+
+
 }

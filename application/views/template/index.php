@@ -18,6 +18,7 @@
 	folder instead of downloading all of them to reduce the load. -->
 	<link rel="stylesheet" href="<?php echo base_url();?>asset/dist/css/skins/_all-skins.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>asset/plugins/datatables/dataTables.bootstrap.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>asset/plugins/fileinput/fileinput.min.css">
 	<script type="text/javascript">var base_url = '<?php echo base_url();?>';</script>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,16 +54,16 @@
 						<!-- User Account: style can be found in dropdown.less -->
 						<li class="dropdown user user-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<img src="<?php echo base_url();?>asset/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+								<img src="<?php echo base_url('asset/img/'. $this->session->userdata('_IMG'));?>" class="user-image" alt="User Image">
 								<span class="hidden-xs"><?php echo $this->session->userdata('_NAME');?></span>
 							</a>
 							<ul class="dropdown-menu">
 								<!-- User image -->
 								<li class="user-header">
-									<img src="<?php echo base_url();?>asset/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+									<img src="<?php echo base_url('asset/img/'. $this->session->userdata('_IMG'));?>" class="img-circle" alt="User Image">
 
 									<p>
-										<?php echo $this->session->userdata('_NAME');?> - Web Developer
+										<?php echo $this->session->userdata('_NAME');?> - <?php echo $this->session->userdata('_LEVEL');?>
 										<small>Member since Nov. 2012</small>
 									</p>
 								</li>
@@ -106,7 +107,7 @@
 				<!-- Sidebar user panel -->
 				<div class="user-panel">
 					<div class="pull-left image">
-						<img src="<?php echo base_url();?>asset/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+						<img src="<?php echo base_url('asset/img/'. $this->session->userdata('_IMG'));?>" class="img-circle" alt="User Image">
 					</div>
 					<div class="pull-left info">
 						<p><?php echo $this->session->userdata('_NAME');?></p>
@@ -157,6 +158,7 @@
 <script src="<?php echo base_url();?>asset/js/function.js"></script>
 <script src="<?php echo base_url();?>asset/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url();?>asset/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url();?>asset/plugins/fileinput/fileinput.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 		<?php echo (isset($_EXTRA_JS))? $_EXTRA_JS : '';?>

@@ -6,7 +6,7 @@ class Manager extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->activeSession = 'DEMO';// $this->session->userdata('_USER_ID');
+        $this->activeSession = $this->session->userdata('_USER_ID');
         $this->load->library('form_validation');
     }
 
@@ -41,7 +41,7 @@ class Manager extends CI_Controller {
                 } else {
                     $query['table'] = 'user';
                     $query['where'] = array(
-                        'username' => $this->input->post('username-input'), 'status' => 'Aktif' // is alive
+                        'username' => $this->input->post('username-input'), 'is_active' => 1 // is alive
                     );
                     $actor = $this->loginmodel->getRecord($query);
 
@@ -50,10 +50,10 @@ class Manager extends CI_Controller {
                     } else {
                         if ($actor->password == md5($this->input->post('password-input'))) {
                             $this->session->set_userdata(array(
-                                '_USER_ID' => $actor->username,
-                                '_NAME' => $actor->nama,
+                                '_USER_ID' => $actor->user_id,
+                                '_NAME' => $actor->name,
                                 '_LEVEL' => $actor->level,
-                                //'_IMG' => $actor->foto
+                                '_IMG' => $actor->img
                             ));
                             $code = 1;
                         } else {

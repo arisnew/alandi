@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 20, 2016 at 10:31 
+-- Generation Time: Jan 15, 2017 at 09:42 
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.5.38
 
@@ -86,6 +86,26 @@ CREATE TABLE `employee` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `modul`
+--
+
+CREATE TABLE `modul` (
+  `modul_id` int(11) NOT NULL,
+  `modul_name` varchar(100) DEFAULT NULL,
+  `form_name` varchar(255) DEFAULT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `modul`
+--
+
+INSERT INTO `modul` (`modul_id`, `modul_name`, `form_name`, `is_active`) VALUES
+(1, 'User Management', '_form_user.php', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `payroll`
 --
 
@@ -138,9 +158,16 @@ CREATE TABLE `position` (
 CREATE TABLE `privilege` (
   `privilege_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `modul` enum('DATA_USER','DATA_DEPARTMENT','DATA_POSITION','DATA_ALLOWANCE') DEFAULT NULL,
+  `modul_id` int(11) DEFAULT NULL,
   `role` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `privilege`
+--
+
+INSERT INTO `privilege` (`privilege_id`, `user_id`, `modul_id`, `role`) VALUES
+(1, 2, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -156,8 +183,16 @@ CREATE TABLE `user` (
   `level` varchar(100) NOT NULL,
   `description` text,
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
-  `password` varchar(100) DEFAULT NULL
+  `password` varchar(100) DEFAULT NULL,
+  `img` varchar(255) NOT NULL DEFAULT 'default-user.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `name`, `email`, `level`, `description`, `is_active`, `password`, `img`) VALUES
+(2, 'aris', 'Aris', 'aris@gmail.com', 'Admin', 'test', 1, '202cb962ac59075b964b07152d234b70', 'sample-logo.png');
 
 --
 -- Indexes for dumped tables
@@ -192,6 +227,12 @@ ALTER TABLE `employee`
   ADD KEY `department_id` (`department_id`);
 
 --
+-- Indexes for table `modul`
+--
+ALTER TABLE `modul`
+  ADD PRIMARY KEY (`modul_id`);
+
+--
 -- Indexes for table `payroll`
 --
 ALTER TABLE `payroll`
@@ -218,7 +259,8 @@ ALTER TABLE `position`
 --
 ALTER TABLE `privilege`
   ADD PRIMARY KEY (`privilege_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `modul_id` (`modul_id`);
 
 --
 -- Indexes for table `user`
@@ -251,6 +293,11 @@ ALTER TABLE `department`
 ALTER TABLE `employee`
   MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `modul`
+--
+ALTER TABLE `modul`
+  MODIFY `modul_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `payroll`
 --
 ALTER TABLE `payroll`
@@ -269,12 +316,12 @@ ALTER TABLE `position`
 -- AUTO_INCREMENT for table `privilege`
 --
 ALTER TABLE `privilege`
-  MODIFY `privilege_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `privilege_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
@@ -310,7 +357,8 @@ ALTER TABLE `payroll_detail`
 -- Constraints for table `privilege`
 --
 ALTER TABLE `privilege`
-  ADD CONSTRAINT `privilege_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `privilege_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `privilege_ibfk_2` FOREIGN KEY (`modul_id`) REFERENCES `modul` (`modul_id`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
